@@ -1,17 +1,17 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HomePage msg="Welcome to the Pluto CMP Demo"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HomePage from './components/HomePage.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    HomePage
   }
 }
 </script>
@@ -24,5 +24,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+html {
+  background-color: #f4f4f4;
 }
 </style>
