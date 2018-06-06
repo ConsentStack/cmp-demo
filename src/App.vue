@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <img src="./assets/pluto2.svg">
     <HomePage msg="Welcome to the Pluto CMP Demo"/>
   </div>
 </template>
@@ -27,5 +27,9 @@ export default {
 }
 html {
   background-color: #f4f4f4;
+}
+img {
+  width:100px;
+  height:100px;
 }
 </style>

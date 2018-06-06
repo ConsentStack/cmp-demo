@@ -9,43 +9,75 @@
     <h3>Try the stuff below...</h3>
     <ul>
       <li><button @click="loadCmp">Load CMP</button></li>
-      <li><button @click="viewCookie">View Cookie</button></li>
+      <li><button @click="showCookie = !showCookie, viewCookie(), decodeCookie()">View Cookie</button></li>
       <li><button @click="deleteCookie">Delete Cookie</button></li>
     </ul>
+    <code><pre>
+      <div class="code" v-if="showCookie"><p>{{cookieObject}}</p>
+        <div class="code" v-if="!cookieObject"><p>No cookie, please load the CMP!</p></div>
+      </div>
+    </pre></code>
     <h3>Essential Links</h3>
     <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
+      <li><a href="#" target="_blank">Install Docs</a></li>
+      <li><a href="#" target="_blank">API Docs</a></li>
+      <li><a href="#" target="_blank">Homepage</a></li>
+      <li><a href="#" target="_blank">Blog</a></li>
     </ul>
 
   </div>
 </template>
 
 <script>
+import { decodeVendorCookieValue } from '../../cookie/cookieutils.js';
+
 export default {
   name: 'HomePage',
+  data () {
+    return {
+      showCookie : false,
+      base64Cookie : '',
+      cookieObject : {},
+    }
+  },
   props: {
     msg: String
+  },
+  computed : {
+    viewCookieComp () {
+      const name = 'euconsent';
+      const value = '; ' + document.cookie;
+      const parts = value.split('; ' + name + '=');
+      if (parts.length === 2) {
+        return parts.pop().split(';').shift();
+      }
+      return
+    },
+    get() {
+      return this.$cookies.euconsent || null;
+    }
   },
   methods : {
     loadCmp() {
       window.__cmp('showConsentTool');
     },
     viewCookie() {
-      function getCookieValue() {
-        const name = 'euconsent';
-        const value = '; ' + document.cookie;
-        const parts = value.split('; ' + name + '=');
-        if (parts.length === 2) {
-          return parts.pop().split(';').shift();
-        }
-        return
+      const name = 'euconsent';
+      const value = '; ' + document.cookie;
+      const parts = value.split('; ' + name + '=');
+      if (parts.length === 2) {
+        return parts.pop().split(';').shift();
       }
-      console.log(getCookieValue())
+      return
+    },
+    decodeCookie() {
+      this.base64Cookie = this.viewCookie();
+      this.cookieObject = decodeVendorCookieValue(this.base64Cookie)
     },
     deleteCookie() {
+      this.$removeCookie('euconsent')
+      this.base64Cookie = this.viewCookie();
+      this.cookieObject = decodeVendorCookieValue(this.base64Cookie);
       // need to allow this to call to consensu.org script to delete those cookies 
       // document.cookie = 'euconsent=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=.consensu.org;';
       document.cookie = 'euconsent=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=.pluto-cmp.com;';
@@ -55,6 +87,8 @@ export default {
     }
   },
   mounted () {
+    this.base64Cookie = this.viewCookie();
+    this.cookieObject = decodeVendorCookieValue(this.base64Cookie);
 /*     const plutoScript = document.createElement('script');
     plutoScript.setAttribute('id', 'pluto-cmp-js-src');
     plutoScript.setAttribute('client-id', 1);
@@ -91,6 +125,20 @@ button {
   border: 0px solid #00e6b8;
   width : 170px;
   font-size: 12pt;
+  outline: 0;
+}
+button:active { 
+    background-color: #00e6b8;
+}
+
+p {
+  padding-left: 10px;
+}
+.code {
+  text-align: left;
+  width: 600px; 
+  margin:0 auto;
+  background: #fff;
 }
 
 </style>

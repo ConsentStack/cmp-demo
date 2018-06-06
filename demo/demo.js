@@ -1,8 +1,6 @@
 import { checkIabCookie } from '../client/cookies.js';
 import { decodeVendorCookieValue } from '../cookie/cookieutils.js';
 
-
-
 // LOGIC - Client Selection
 // grab the querystring from the URL, get c=
 // build a script element and attach to page
