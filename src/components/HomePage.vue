@@ -45,7 +45,7 @@ export default {
   },
   computed : {
     viewCookieComp () {
-      const name = 'euconsent';
+      const name = 'pubeuconsent';
       const value = '; ' + document.cookie;
       const parts = value.split('; ' + name + '=');
       if (parts.length === 2) {
@@ -62,7 +62,7 @@ export default {
       window.__cmp('showConsentTool');
     },
     viewCookie() {
-      const name = 'euconsent';
+      const name = 'pubeuconsent';
       const value = '; ' + document.cookie;
       const parts = value.split('; ' + name + '=');
       if (parts.length === 2) {
@@ -75,25 +75,20 @@ export default {
       this.cookieObject = decodeVendorCookieValue(this.base64Cookie)
     },
     deleteCookie() {
-      this.$removeCookie('euconsent')
+      this.$removeCookie('pubeuconsent')
       this.base64Cookie = this.viewCookie();
       this.cookieObject = decodeVendorCookieValue(this.base64Cookie);
       // need to allow this to call to consensu.org script to delete those cookies 
       // document.cookie = 'euconsent=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=.consensu.org;';
-      document.cookie = 'euconsent=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=.pluto-cmp.com;';
+      document.cookie = 'pubeuconsent=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=.pluto-cmp.com;';
       document.cookie = 'custom=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=.pluto-cmp.com;';
-      document.cookie = 'euconsent=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+      document.cookie = 'pubeuconsent=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
       document.cookie = 'custom=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     }
   },
   mounted () {
     this.base64Cookie = this.viewCookie();
     this.cookieObject = decodeVendorCookieValue(this.base64Cookie);
-/*     const plutoScript = document.createElement('script');
-    plutoScript.setAttribute('id', 'pluto-cmp-js-src');
-    plutoScript.setAttribute('client-id', 1);
-    plutoScript.setAttribute('src', 'https://pluto.mgr.consensu.org/cmp');
-    document.head.appendChild(plutoScript); */
   }
 }
 </script>
