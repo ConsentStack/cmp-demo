@@ -78,10 +78,8 @@ export default {
       this.$removeCookie('pubeuconsent')
       this.base64Cookie = this.viewCookie();
       this.cookieObject = decodeVendorCookieValue(this.base64Cookie);
-      // need to allow this to call to consensu.org script to delete those cookies 
-      // document.cookie = 'euconsent=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=.consensu.org;';
-      document.cookie = 'pubeuconsent=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=.pluto-cmp.com;';
-      document.cookie = 'custom=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=.pluto-cmp.com;';
+      document.cookie = 'pubeuconsent=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=.consentstack.org;';
+      document.cookie = 'custom=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=.consentstack.org;';
       document.cookie = 'pubeuconsent=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
       document.cookie = 'custom=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     }

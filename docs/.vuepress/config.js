@@ -5,7 +5,7 @@ module.exports = {
   dest: "dist/docs",
   themeConfig: {
     nav: [
-      { text: 'Home', link: 'https://quizzical-franklin-8da6e0.netlify.com/'},
+      { text: 'Home', link: 'https://consentstack.org/'},
       { text: 'CMP', link: '/cmp/'}
     ],
     sidebar: [{
