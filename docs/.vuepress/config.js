@@ -14,7 +14,8 @@ module.exports = {
       children: [
         '/cmp/',
         '/cmp/install',
-        '/cmp/custom'
+        '/cmp/custom',
+        '/cmp/faq'
       ],
     }],
     // displayAllHeaders: true, update on v0.11
