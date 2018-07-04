@@ -1,20 +1,22 @@
 module.exports = {
-  title: "Consent Stack",
+  title: "ConsentStack",
   description: "Documentation, articles and general resources for the ConsentStack project.",
   base: "/docs/",
   dest: "dist/docs",
   themeConfig: {
     nav: [
-      { text: 'Guide', link: '/guide/'}
+      { text: 'Home', link: 'https://quizzical-franklin-8da6e0.netlify.com/'},
+      { text: 'CMP', link: '/cmp/'}
     ],
     sidebar: [{
-      title: 'Guide',
+      title: 'CMP',
       collapsable: true,
       children: [
-        '/guide/',
-        '/guide/install'
+        '/cmp/',
+        '/cmp/install',
+        '/cmp/custom'
       ],
     }],
-    // displayAllHeaders: true,
+    // displayAllHeaders: true, update on v0.11
   }
 }
