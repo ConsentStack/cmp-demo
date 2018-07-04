@@ -19,7 +19,7 @@
     </pre></code>
     <h3>Essential Links</h3>
     <ul>
-      <li><a href="#" target="_blank">Install Docs</a></li>
+      <li><a href="/docs" target="_blank">Install Docs</a></li>
       <li><a href="#" target="_blank">API Docs</a></li>
       <li><a href="#" target="_blank">Homepage</a></li>
       <li><a href="#" target="_blank">Blog</a></li>

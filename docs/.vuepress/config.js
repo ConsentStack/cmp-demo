@@ -1,6 +1,8 @@
 module.exports = {
   title: "Consent Stack",
   description: "Documentation, articles and general resources for the ConsentStack project.",
+  base: "/docs/",
+  dest: "dist/docs",
   themeConfig: {
     nav: [
       { text: 'Guide', link: '/guide/'}
