@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img src="./assets/pluto2.svg">
-    <HomePage msg="Welcome to the Pluto CMP Demo"/>
+    <HomePage msg="Welcome to the CMP Demo"/>
   </div>
 </template>
 
