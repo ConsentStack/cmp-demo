@@ -4,7 +4,7 @@
     <p>
       For guidance on how to implement the application on your own website, please<br>
       get in touch with
-      <a href="mailto:dennis@miqdigital.com" target="_blank">Pluto support</a>.
+      <a href="mailto:dennis@miqdigital.com" target="_blank">ConsentStack support</a>.
     </p>
     <h3>Try the stuff below...</h3>
     <ul>
