@@ -20,7 +20,7 @@
     <h3>Essential Links</h3>
     <ul>
       <li><a href="/docs" target="_self">Install Docs</a></li>
-      <li><a href="#" target="_self">API Docs</a></li>
+      <li><a href="/docs" target="_self">API Docs</a></li>
       <li><a href="#" target="_self">Homepage</a></li>
       <li><a href="#" target="_self">Blog</a></li>
     </ul>
@@ -45,7 +45,7 @@ export default {
   },
   computed : {
     viewCookieComp () {
-      const name = 'pubeuconsent';
+      const name = 'euconsent';
       const value = '; ' + document.cookie;
       const parts = value.split('; ' + name + '=');
       if (parts.length === 2) {
@@ -75,12 +75,12 @@ export default {
       this.cookieObject = decodeVendorCookieValue(this.base64Cookie)
     },
     deleteCookie() {
-      this.$removeCookie('pubeuconsent')
+      this.$removeCookie('euconsent')
       this.base64Cookie = this.viewCookie();
       this.cookieObject = decodeVendorCookieValue(this.base64Cookie);
-      document.cookie = 'pubeuconsent=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=.consentstack.org;';
+      document.cookie = 'euconsent=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=.consentstack.org;';
       document.cookie = 'custom=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=.consentstack.org;';
-      document.cookie = 'pubeuconsent=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+      document.cookie = 'euconsent=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
       document.cookie = 'custom=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     }
   },
