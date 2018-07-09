@@ -62,7 +62,7 @@ export default {
       window.__cmp('showConsentTool');
     },
     viewCookie() {
-      const name = 'pubeuconsent';
+      const name = 'euconsent';
       const value = '; ' + document.cookie;
       const parts = value.split('; ' + name + '=');
       if (parts.length === 2) {
