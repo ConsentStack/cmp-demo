@@ -14,8 +14,8 @@ module.exports = {
       children: [
         '/cmp/',
         '/cmp/install',
-        '/cmp/custom',
         '/cmp/tag-manager',
+        '/cmp/custom',
         '/cmp/faq'
       ],
     }],

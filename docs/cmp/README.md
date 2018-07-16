@@ -37,12 +37,22 @@ The [ePrivacy Directive](https://ec.europa.eu/digital-single-market/en/proposal-
 
 ## What is a CMP?
 
-Within the IAB framework, a CMP is a technology that can capture and store the consent status of a user and transmit that information to ecosystem partners. 
+Within the IAB framework, a CMP is a technology that can capture and store the consent status of a user and further transmit that information to ecosystem partners. 
 
 The CMP, is an IAB registered technology. It implements the framework as designated by the IAB but differentiates itself by implementing human-centered design, to improve the experience your customers will receive. More information on this can be found in other materials.
 
-It is also important to make a distinction between a generic CMP, which can manage consent across various channels and a CMP which implements consent management via the IAB framework for propagation into the digital advertising ecosystem.
+It is also important to make a distinction between a generic CMP, which can manage consent across various channels and a CMP which implements consent management via the IAB framework for propagation into the digital advertising ecosystem. Whilst this project will grow in scope, today we are concerned with consent only for digital channel activities.
+
+## Why do I need a CMP?
+
+The installation and usage of a CMP has two key benefits:
+- Compliance with the EU GDPR.
+- Propagation of a consent signal to partners.
+
+The CMP is not just the banner which is shown to the website visitor, the main component of the CMP actually works in the background by setting a cookie which contains the users choices and then passing this to various partners who are also on the current webpage, such as web analytics vendors or via S2S propagation in the advertising ecosystem.
+
+**To ensure that users who visit your website can be tracked via various technologies by your partners it is vital for a CMP to be installed.**
 
 ## Where is Consent Stored?
 
-Vendor information and consent can technically be stored anywhere as long as the information is exposed through the CMP API. Currently the our CMP uses cookies to store the consent information, but we are actively developing other methods, to store this information in an open and decentralised fashion which avoids the use of cookies.
+Vendor information and consent can technically be stored anywhere as long as the information is exposed through the CMP API. Currently the CMP uses cookies to store consent information, but we are actively developing other methods, to store this information in an open and decentralised fashion which avoids the use of cookies.

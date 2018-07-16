@@ -24,9 +24,9 @@ Please ensure you replace `[CLIENT_ID]` in the above URL with the ID provided by
     - If no consent data is found: **show the consent tool**.
     - If consent data is found and the vendor list version does not match: **show the consent tool**.
 
-## Tag Manager Installation
+## Tag Management System Installation
 
-#### Please reach out to us for docs and help with installation using your specific tag manager.
+Documentation for installation via a TMS install can be found [here](./tag-manager.md).
 
 ## Manual Triggering
 
@@ -46,5 +46,5 @@ Or you can make a call to the CMP API directly:
 window.__cmp('showConsentTool', parameters, callback);
 ```
 :::tip
-#### For any further help please contact [support](mailto:dennis@miqdigital.com).
+#### For any further help please contact [support](mailto:support@consentstack.org).
 :::

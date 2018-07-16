@@ -1,4 +1,4 @@
-# Visual Customisation
+# Customisation Options
 
 Currently we have an on-boarding process in which we will configure the CMP on your behalf, we can customise:
 - Messaging
