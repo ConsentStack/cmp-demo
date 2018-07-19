@@ -9,7 +9,7 @@
     <h3>Try the stuff below...</h3>
     <ul>
       <li><button @click="loadCmp">Load CMP</button></li>
-      <li><button @click="showCookie = !showCookie, viewCookie(), decodeCookie()">View Cookie</button></li>
+      <li><button @click="showCookie = !showCookie">View Cookie</button></li>
       <li><button @click="deleteCookie">Delete Cookie</button></li>
     </ul>
     <code><pre>
@@ -36,54 +36,46 @@ export default {
   data () {
     return {
       showCookie : false,
-      base64Cookie : '',
+      cookieString : '',
       cookieObject : {},
     }
   },
-  computed : {
-    viewCookieComp () {
-      const name = 'euconsent';
-      const value = '; ' + document.cookie;
-      const parts = value.split('; ' + name + '=');
-      if (parts.length === 2) {
-        return parts.pop().split(';').shift();
-      }
-      return
-    },
-    get() {
-      return this.$cookies.euconsent || null;
-    }
-  },
-  methods : {
+  methods: {
     loadCmp() {
       window.__cmp('showConsentTool');
     },
-    viewCookie() {
+    getCookieString() {
       const name = 'euconsent';
       const value = '; ' + document.cookie;
       const parts = value.split('; ' + name + '=');
       if (parts.length === 2) {
         return parts.pop().split(';').shift();
       }
-      return
+      return;
     },
     decodeCookie() {
-      this.base64Cookie = this.viewCookie();
-      this.cookieObject = decodeVendorCookieValue(this.base64Cookie)
+      this.cookieString = this.getCookieString();
+      this.cookieObject = decodeVendorCookieValue(this.cookieString)
     },
     deleteCookie() {
-      //this.$removeCookie('euconsent')
-      this.base64Cookie = this.viewCookie();
-      this.cookieObject = decodeVendorCookieValue(this.base64Cookie);
       document.cookie = 'euconsent=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=.consentstack.org;';
       document.cookie = 'custom=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=.consentstack.org;';
       document.cookie = 'euconsent=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
       document.cookie = 'custom=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+      this.cookieString = this.getCookieString();
+      this.cookieObject = decodeVendorCookieValue(this.cookieString);
+    },
+    updateCookieObject() {
+      setInterval(() => {
+        this.cookieString = this.getCookieString();
+        this.cookieObject = decodeVendorCookieValue(this.cookieString);
+      }, 500)
     }
   },
   mounted() {
-    this.base64Cookie = this.viewCookie();
-    this.cookieObject = decodeVendorCookieValue(this.base64Cookie);
+    this.cookieString = this.getCookieString();
+    this.cookieObject = decodeVendorCookieValue(this.cookieString);
+    this.updateCookieObject();
     // GTM Code
     (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -91,9 +83,6 @@ export default {
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-NRVMLP2');
   },
-  beforeDestroy() {
-
-  }
 }
 </script>
 
