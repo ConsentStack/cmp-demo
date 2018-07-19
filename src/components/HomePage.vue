@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>{{ msg }}</h1>
+    <h1>Welcome to the CMP Demo</h1>
     <p>
       For guidance on how to implement the application on your own website, please<br>
       get in touch with
@@ -40,9 +40,6 @@ export default {
       cookieObject : {},
     }
   },
-  props: {
-    msg: String
-  },
   computed : {
     viewCookieComp () {
       const name = 'euconsent';
@@ -75,7 +72,7 @@ export default {
       this.cookieObject = decodeVendorCookieValue(this.base64Cookie)
     },
     deleteCookie() {
-      this.$removeCookie('euconsent')
+      //this.$removeCookie('euconsent')
       this.base64Cookie = this.viewCookie();
       this.cookieObject = decodeVendorCookieValue(this.base64Cookie);
       document.cookie = 'euconsent=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=.consentstack.org;';
@@ -84,9 +81,18 @@ export default {
       document.cookie = 'custom=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     }
   },
-  mounted () {
+  mounted() {
     this.base64Cookie = this.viewCookie();
     this.cookieObject = decodeVendorCookieValue(this.base64Cookie);
+    // GTM Code
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NRVMLP2');
+  },
+  beforeDestroy() {
+
   }
 }
 </script>

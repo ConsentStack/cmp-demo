@@ -1,17 +1,19 @@
 <template>
   <div id="app">
     <img id="logo-img" src="./assets/pluto2.svg">
-    <HomePage msg="Welcome to the CMP Demo"/>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 import HomePage from './components/HomePage.vue'
+import StagingPage from './components/StagingPage.vue'
 
 export default {
   name: 'app',
   components: {
-    HomePage
+    HomePage,
+    StagingPage
   }
 }
 </script>
