@@ -13,6 +13,14 @@ Currently we have an on-boarding process in which we will configure the CMP on y
 We actively recommend each site to use wording for the consent message which aligns with their brand voice. However, we are happy to provide standard & custom copy. 
 ::: 
 
+## Custom Style Examples
+
+The world is your oyster when it comes to styling the user interface of the ConsentStack CMP. Most customers opt for bringing the styles in line with the design of the website, this is a service we can perform without any CSS code being shared from your own internal webmaster.
+
+#### Here is a dark and light theme example:
+
+![Dark & Light theme CMP UI](./assets/styling-1.png)
+
 ## Consent Notice Wording Examples
 **The ConsentStack team have provided some examples of copy which can be used in your modal. We will keep updating this page with new ideas of to keep your CMP text fresh!**
 
