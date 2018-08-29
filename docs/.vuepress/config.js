@@ -16,6 +16,7 @@ module.exports = {
         '/cmp/install',
         '/cmp/tag-manager',
         '/cmp/custom',
+        '/cmp/test',
         '/cmp/faq'
       ],
     }],

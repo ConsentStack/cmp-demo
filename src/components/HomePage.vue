@@ -1,132 +1,44 @@
 <template>
   <div>
-    <h1>Welcome to the CMP Demo</h1>
-    <p>
-      For guidance on how to implement the application on your own website, please<br>
-      get in touch with
-      <a href="mailto:dennis@miqdigital.com" target="_blank">ConsentStack support</a>.
-    </p>
-    <h3>Try the stuff below...</h3>
-    <ul>
-      <li><button @click="loadCmp">Load CMP</button></li>
-      <li><button @click="showCookie = !showCookie">View Cookie</button></li>
-      <li><button @click="deleteCookie">Delete Cookie</button></li>
-    </ul>
-    <code><pre>
-      <div class="code" v-if="showCookie"><p>{{cookieObject}}</p>
-        <div class="code" v-if="!cookieObject"><p>No cookie, please load the CMP!</p></div>
-      </div>
-    </pre></code>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="/docs" target="_self">Install Docs</a></li>
-      <li><a href="/docs" target="_self">API Docs</a></li>
-      <li><a href="#" target="_self">Homepage</a></li>
-      <li><a href="#" target="_self">Blog</a></li>
-    </ul>
-
+    <h1 class="title">Treat your user's <span class="green-text">data</span> fairly.</h1>
+    <h3>Open source, developer focused & human centric consent management platform.</h3>
+    <button class="website-button" @click="gotoGit()">Dev Docs</button>
+    <button class="website-button" @click="gotoDocs()">Usage Docs</button>
   </div>
 </template>
 
 <script>
-import { decodeVendorCookieValue } from '../../cookie/cookieutils.js';
+import FormComponent from './FormComponent.vue'
 
 export default {
   name: 'HomePage',
+  components: {
+    FormComponent
+  },
   data () {
-    return {
-      showCookie : false,
-      cookieString : '',
-      cookieObject : {},
-    }
+    return {}
   },
   methods: {
-    loadCmp() {
-      window.__cmp('showConsentTool');
+    gotoDocs () {
+      window.location.href = '/docs/'
     },
-    getCookieString() {
-      const name = 'euconsent';
-      const value = '; ' + document.cookie;
-      const parts = value.split('; ' + name + '=');
-      if (parts.length === 2) {
-        return parts.pop().split(';').shift();
-      }
-      return;
-    },
-    decodeCookie() {
-      this.cookieString = this.getCookieString();
-      this.cookieObject = decodeVendorCookieValue(this.cookieString)
-    },
-    deleteCookie() {
-      document.cookie = 'euconsent=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=.consentstack.org;';
-      document.cookie = 'custom=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=.consentstack.org;';
-      document.cookie = 'euconsent=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-      document.cookie = 'custom=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-      this.cookieString = this.getCookieString();
-      this.cookieObject = decodeVendorCookieValue(this.cookieString);
-    },
-    updateCookieObject() {
-      setInterval(() => {
-        this.cookieString = this.getCookieString();
-        this.cookieObject = decodeVendorCookieValue(this.cookieString);
-      }, 500)
+    gotoGit () {
+      window.location.href = 'https://github.com/ConsentStack/cmp'
     }
-  },
-  mounted() {
-    this.cookieString = this.getCookieString();
-    this.cookieObject = decodeVendorCookieValue(this.cookieString);
-    this.updateCookieObject();
-    // GTM Code
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-NRVMLP2');
   },
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
+.title {
+  padding-top: 60px;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
+.green-text {
   color: #00e6b8;
 }
 button {
-  padding: 0.75em 2em;
-  border-radius: 2em;
-  display: inline-block;
-  color: #fff;
-  background-color: #b3b3b3;
-  transition: all 0.15s ease;
-  box-sizing: border-box;
-  border: 0px solid #00e6b8;
-  width : 170px;
-  font-size: 12pt;
-  outline: 0;
-}
-button:active { 
-    background-color: #00e6b8;
-}
-
-p {
-  padding-left: 10px;
-}
-.code {
-  text-align: left;
-  width: 600px; 
-  margin:0 auto;
-  background: #fff;
+  margin: 30px;
 }
 
 </style>

@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /pluto2.svg
+heroImage: /logo.png
 actionText: Get Started →
 actionLink: /cmp/
 features:
